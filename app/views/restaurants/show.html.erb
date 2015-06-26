@@ -1,0 +1,37 @@
+<h3>Restaurant Details</h3>
+<%= link_to 'Back to Restaurants', root_path %>
+
+<table class="small-10">
+  <tr>
+    <th>Restaurant</th>
+    <th>Address</th>
+    <th>Description</th>
+    <th>Category</th>
+  </tr>
+  <tr>
+    <td><%= @restaurant.name %></td>
+    <td><%= @restaurant.address %><br><%= @restaurant.city %>, <%= @restaurant.state %> <%= @restaurant.zip %></td>
+    <td><%= @restaurant.description %></td>
+    <td><%= @restaurant.category %></td>
+</table>
+
+<%- if !@reviews.empty? %>
+  <h5>Reviews</h5>
+  <table class="small-10">
+    <tr>
+      <th>Rating (1-5)</th>
+      <th>Review</th>
+      <th>Created at</th>
+    </tr>
+
+    <% @reviews.each do |review| %>
+      <tr>
+        <td class="small-1"><%= review.rating %></td>
+        <td><%= review.body %></td>
+        <td class="small-4"><%= review.created_at %></td>
+      </tr>
+    <%- end -%>
+  </table>
+<%- end -%>
+
+<%= render 'reviews/new' %>

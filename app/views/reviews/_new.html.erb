@@ -1,0 +1,15 @@
+<h5>New Review</h5>
+<%= form_for [@restaurant, @review] do |f| %>
+  <table class="small-10">
+    <tr>
+      <th>Rating (1-5)</th>
+      <th>Review</th>
+    </tr>
+
+    <tr>
+      <td class="small-1"><%= f.text_field :rating %></td>
+      <td><%= f.text_field :body %></td>
+      <td class="small-1"><%= f.submit "Submit" %></td>
+    </tr>
+  </table>
+<%- end -%>
