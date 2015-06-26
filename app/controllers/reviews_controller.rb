@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @restaurant = Restaurant.find_by(id: params[:restaurant_id])
     @review.restaurant = @restaurant
+    @reviews = @restaurant.reviews
 
     if @review.save
       redirect_to restaurant_path(@restaurant)
